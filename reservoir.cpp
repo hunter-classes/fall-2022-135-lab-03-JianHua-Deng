@@ -1,1 +1,42 @@
 // add your code
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <climits>
+#include "reservoir.h"
+
+double get_east_storage(std::string inputDate) {
+
+	//read tsv file, declaring fin as the input file stream object
+	std::ifstream fin("Current_Reservoir_Levels.tsv");
+
+	//Conditions for failing to read the tsv file
+	if (fin.fail()) {
+		std::cerr << "File Cannot be opened for reading." << std::endl;
+		exit(1);
+	}//end condition
+
+	std::string junk;
+	getline(fin, junk);//read the first line within tsv file as the first line will only has headers
+
+	std::string date;
+	double eastSt, eastEl, westSt, westEl, targetValue;
+
+	//Loop through by the headings
+	while (fin >> date >> eastSt >> eastEl >> westSt >> westEl) {
+
+		fin.ignore(INT_MAX, '\n');
+
+		//if the parameter's date equals date in fin
+		if (inputDate.compare(date) == 0){
+			targetValue = eastSt;
+		}//end condition
+		
+
+	}//end of while loop
+
+	fin.close();
+
+	return targetValue;
+
+}//end get_east_storage function
