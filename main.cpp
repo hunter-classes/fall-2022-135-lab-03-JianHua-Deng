@@ -1,8 +1,5 @@
 // add your code as appropriate 
 #include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <climits>
 #include "reservoir.h"
 
 int main()
