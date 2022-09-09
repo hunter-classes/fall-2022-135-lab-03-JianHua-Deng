@@ -117,7 +117,7 @@ double get_max_east() {
 
 		fin.ignore(INT_MAX, '\n');
 
-		//This checks if it's iterating the first loop, if so, set samllest to the first value so it could move on to the next loop and compare to the next number.
+		//This checks if it's iterating the first loop, if so, set largest to the first value so it could move on to the next loop and compare to the next number.
 		if (secondLine) {
 			largest = eastSt;
 			secondLine = false;
