@@ -1,6 +1,7 @@
 // add your code as appropriate 
 #include <iostream>
 #include "reservoir.h"
+#include "reverseorder.h"
 
 int main()
 {
@@ -25,7 +26,9 @@ int main()
 	std::cout << "The one that consists of the highest basin is " << compare_basins("01/11/2018") << std::endl;
 	std::cout << "The one that consists of the highest basin is " << compare_basins("01/10/2018") << std::endl;
 	
-
+	//test cases for reverse_order
+	std::cout << std::endl;
+	reverse_order("05/29/2018", "06/02/2018");
 
 	return 0;
 }//end main
