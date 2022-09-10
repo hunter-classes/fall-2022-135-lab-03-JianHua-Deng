@@ -18,16 +18,16 @@ double get_east_storage(std::string inputDate) {
 		exit(1);
 	}//end condition
 
-	std::string junk;
+	std::string junk, date;
 	getline(fin, junk);//read the first line within tsv file as the first line will only has headers
 
-	std::string date;
 	double eastSt, eastEl, westSt, westEl, targetValue;
 
 	//Loop through by the headings
 	while (fin >> date >> eastSt >> eastEl >> westSt >> westEl) {
 
-		fin.ignore(INT_MAX, '\n');
+		fin.ignore(INT_MAX, '\n');//skips to the end of line, ignorring the remaining columns 
+                          
 
 		//if the parameter's date equals date in fin
 		if (inputDate.compare(date) == 0){
@@ -57,17 +57,16 @@ double get_min_east() {
 		exit(1);
 	}//end condition
 
-	std::string junk;
+	std::string junk, date;
 	getline(fin, junk);//read the first line within tsv file as the first line will only has headers
 
-	std::string date;
 	double eastSt, eastEl, westSt, westEl, smallest;
 	bool secondLine = true;
 
 	//Loop through by the headings
 	while (fin >> date >> eastSt >> eastEl >> westSt >> westEl) {
 
-		fin.ignore(INT_MAX, '\n');
+		fin.ignore(INT_MAX, '\n');//skips to the end of line, ignorring the remaining columns 
 
 		//This checks if it's iterating the first loop, if so, set samllest to the first value so it could move on to the next loop and compare to the next number.
 		if (secondLine) {
@@ -105,17 +104,16 @@ double get_max_east() {
 		exit(1);
 	}//end condition
 
-	std::string junk;
+	std::string junk, date;
 	getline(fin, junk);//read the first line within tsv file as the first line will only has headers
 
-	std::string date;
 	double eastSt, eastEl, westSt, westEl, largest;
 	bool secondLine = true;
 
 	//Loop through by the headings
 	while (fin >> date >> eastSt >> eastEl >> westSt >> westEl) {
 
-		fin.ignore(INT_MAX, '\n');
+		fin.ignore(INT_MAX, '\n');//skips to the end of line, ignorring the remaining columns 
 
 		//This checks if it's iterating the first loop, if so, set largest to the first value so it could move on to the next loop and compare to the next number.
 		if (secondLine) {
@@ -156,25 +154,24 @@ std::string compare_basins(std::string inputDate) {
 	//initializing variables
 	std::string date, result;
 	double eastSt, eastEl, westSt, westEl;
-	bool secondLine = true;
 
 	//Loop through by the headings
 	while (fin >> date >> eastSt >> eastEl >> westSt >> westEl) {
 
-		fin.ignore(INT_MAX, '\n');
+		fin.ignore(INT_MAX, '\n');//skips to the end of line, ignorring the remaining columns 
 
-		//when the line matches the date of the inputDate in parameter
+		//when the line matches the date of the inputDate from parameter
 		if (inputDate.compare(date) == 0) {
 			//if east elevation is higher
 			if (eastEl > westEl) {
 
 				result = "East";
 
-			}else if (eastEl < westEl) { //if west elevation i s higher
+			}else if (eastEl < westEl) { //if west elevation is higher
 
 				result = "West";
 
-			}else { //if all above condition doesn't meet, it has to be equal
+			}else { //if all above condition doesn't meet, it has to be equal to one another
 
 				result = "Equal";
 
