@@ -22,6 +22,7 @@ void reverse_order(std::string date1, std::string date2) {
 
 	double eastSt, eastEl, westSt, westEl, smallest;
 	bool start = false;
+
 	std::vector<std::string> dates;
 	std::vector<double> values;
 
@@ -35,11 +36,13 @@ void reverse_order(std::string date1, std::string date2) {
 			start = true;
 		}//end condition
 
+		//Once pointer is at date1, start adding dates and value into the vector
 		if (start) {
 			dates.push_back(date);
 			values.push_back(westEl);
 		}//end condition
 
+		//Once pointer reaches date2, stop adding to the vector
 		if (date2.compare(date) == 0) {
 			start = false;
 		}//end condition
@@ -51,7 +54,7 @@ void reverse_order(std::string date1, std::string date2) {
 	fin.close();
 
 	//printing vector in reverse
-	int v = 0;//index for values
+	int v = 0;//index variable for values vector
 	for (int i = dates.size() - 1; i >= 0; i--) {
 		std::cout << "Date: " << dates.at(i) << "        " << values.at(v) << " ft" << std::endl;
 		v++;
