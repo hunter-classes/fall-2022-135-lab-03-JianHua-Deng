@@ -8,7 +8,8 @@ int main()
 	//test cases for get_east_storage
 	std::cout << std::endl;
 	std::cout << "East basin storage: " << get_east_storage("05/20/2018") << " billion gallons " << std::endl;
-	
+	std::cout << "East basin storage: " << get_east_storage("06/02/2018") << " billion gallons " << std::endl;
+
 	//test cases for get_min_east
 	std::cout << std::endl;
 	std::cout << "Minimum East basin storage: " << get_min_east() << " billion gallons " << std::endl;
