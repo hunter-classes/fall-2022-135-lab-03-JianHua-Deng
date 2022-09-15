@@ -54,10 +54,8 @@ void reverse_order(std::string date1, std::string date2) {
 	fin.close();
 
 	//printing vector in reverse
-	int v = 0;//index variable for values vector
 	for (int i = dates.size() - 1; i >= 0; i--) {
-		std::cout << "Date: " << dates.at(i) << "        " << values.at(v) << " ft" << std::endl;
-		v++;
+		std::cout << "Date: " << dates.at(i) << "        " << values.at(i) << " ft" << std::endl;
 	}//end for loop
 
 
