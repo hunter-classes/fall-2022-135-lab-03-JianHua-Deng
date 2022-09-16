@@ -28,8 +28,10 @@ int main()
 	std::cout << "The one that consists of the highest basin is " << compare_basins("01/10/2018") << std::endl;
 	
 	//test cases for reverse_order
-	std::cout << std::endl;
+	std::cout << "\nFirst test:" << std::endl;
 	reverse_order("05/29/2018", "06/02/2018");
+	std::cout << "\nSecond test:" << std::endl;
+	reverse_order("05/01/2018", "05/16/2018");
 
 	return 0;
 }//end main
